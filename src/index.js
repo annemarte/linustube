@@ -30,12 +30,15 @@ class App extends Component {
     }
 
     videoSearch(term){
-        YTSearch({key: API_KEY,
-            term: term,
-            safesearch: true,
-                maxResults: 20
+        YTSearch(
+            {
+                key: API_KEY,
+                term: term,
+                safeSearch: true,
+                maxResults: 10
             },
             (videos) => {
+                console.log(videos.length);
             this.setState ({
                 videos: videos,
                 selectedVideo: videos[Math.floor(Math.random()*videos.length)]//get random video from result
