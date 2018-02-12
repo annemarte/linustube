@@ -95,6 +95,10 @@
 
 	var _dinosaurs2 = _interopRequireDefault(_dinosaurs);
 
+	var _godzilla = __webpack_require__(183);
+
+	var _godzilla2 = _interopRequireDefault(_godzilla);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -123,7 +127,7 @@
 	            selectedVideo: null
 	        };
 
-	        _this.videoSearch('kittens');
+	        _this.videoSearch('lego ninjago');
 	        return _this;
 	    }
 
@@ -156,18 +160,22 @@
 	                'div',
 	                null,
 	                _react2.default.createElement(
-	                    'h1',
-	                    null,
-	                    'Velkommen til LinusTube'
+	                    'div',
+	                    { className: 'w3-container w3-animate-left w3-animate-zoom' },
+	                    _react2.default.createElement(
+	                        'h1',
+	                        { className: 'w3-myfont' },
+	                        'Velkommen til LinusTube'
+	                    )
 	                ),
 	                _react2.default.createElement(_search_bar2.default, {
 	                    onSearchTermChange: videoSearch }),
 	                _react2.default.createElement(
 	                    'ul',
-	                    null,
+	                    { className: 'ul-menu' },
 	                    _react2.default.createElement(
 	                        'li',
-	                        null,
+	                        { className: 'li-menu' },
 	                        _react2.default.createElement(_search_button2.default, {
 	                            onClicked: videoSearch,
 	                            searchTerm: 'lego',
@@ -175,11 +183,19 @@
 	                    ),
 	                    _react2.default.createElement(
 	                        'li',
-	                        null,
+	                        { className: 'li-menu' },
 	                        _react2.default.createElement(_search_button2.default, {
 	                            onClicked: videoSearch,
 	                            searchTerm: 'dinosaurs',
 	                            imageUrl: _dinosaurs2.default })
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        { className: 'li-menu' },
+	                        _react2.default.createElement(_search_button2.default, {
+	                            onClicked: videoSearch,
+	                            searchTerm: 'godzilla',
+	                            imageUrl: _godzilla2.default })
 	                    )
 	                ),
 	                _react2.default.createElement(_video_detail2.default, { video: this.state.selectedVideo }),
@@ -33429,7 +33445,7 @@
 	                { className: "media-body" },
 	                _react2.default.createElement(
 	                    "div",
-	                    { className: "media-heading" },
+	                    { className: "media-heading w3-tinyfont " },
 	                    video.snippet.title
 	                )
 	            )
@@ -33488,7 +33504,7 @@
 	            ),
 	            _react2.default.createElement(
 	                "div",
-	                null,
+	                { className: "w3-tinyfont" },
 	                video.snippet.description
 	            )
 	        )
@@ -33512,6 +33528,14 @@
 	"use strict";
 
 	module.exports = __webpack_require__.p + "/images/dinosaurs.jpg";
+
+/***/ }),
+/* 183 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = __webpack_require__.p + "/images/godzilla.jpg";
 
 /***/ })
 /******/ ]);

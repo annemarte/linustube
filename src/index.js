@@ -9,6 +9,7 @@ import VideoList from './components/video_list';
 import VideoDetail from "./components/video_detail";
 import imageUrlLego from './images/lego.jpg';
 import imageUrlDino from './images/dinosaurs.jpg';
+import imageUrlGodzilla from './images/godzilla.jpg';
 
 //API key to youtube search api
 const API_KEY = 'AIzaSyAOGoCxH1UZB7fKAHgCPSiyOAp8GpycYHc';
@@ -66,6 +67,12 @@ class App extends Component {
                             onClicked={videoSearch}
                             searchTerm = "dinosaurs"
                             imageUrl={imageUrlDino}/>
+                    </li>
+                    <li className="li-menu">
+                        <SearchButton
+                            onClicked={videoSearch}
+                            searchTerm = "godzilla"
+                            imageUrl={imageUrlGodzilla}/>
                     </li>
                 </ul>
                     <VideoDetail video={this.state.selectedVideo}/>
