@@ -132,10 +132,10 @@
 	        value: function videoSearch(term) {
 	            var _this2 = this;
 
-	            (0, _youtubeApiSearch2.default)({ key: API_KEY, term: term }, function (videos) {
+	            (0, _youtubeApiSearch2.default)({ key: API_KEY, term: term, safesearch: true }, function (videos) {
 	                _this2.setState({
 	                    videos: videos,
-	                    selectedVideo: videos[0]
+	                    selectedVideo: videos[Math.floor(Math.random() * videos.length)] //get random video from result
 	                });
 	            });
 	        }
@@ -154,7 +154,7 @@
 	                _react2.default.createElement(
 	                    'h1',
 	                    null,
-	                    'Velkommen til Linus-Tube'
+	                    'Velkommen til LinusTube'
 	                ),
 	                _react2.default.createElement(_search_bar2.default, {
 	                    onSearchTermChange: videoSearch }),

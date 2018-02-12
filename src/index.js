@@ -29,10 +29,10 @@ class App extends Component {
     }
 
     videoSearch(term){
-        YTSearch({key: API_KEY, term: term}, (videos) => {
+        YTSearch({key: API_KEY, term: term, safesearch: true}, (videos) => {
             this.setState ({
                 videos: videos,
-                selectedVideo: videos[0]
+                selectedVideo: videos[Math.floor(Math.random()*videos.length)]//get random video from result
             });
         });
     }
@@ -43,7 +43,7 @@ class App extends Component {
         return (
 
             <div>
-                <h1>Velkommen til Linus-Tube</h1>
+                <h1>Velkommen til LinusTube</h1>
                 <SearchBar
                     onSearchTermChange={videoSearch}/>
 
