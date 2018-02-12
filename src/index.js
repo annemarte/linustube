@@ -25,11 +25,16 @@ class App extends Component {
             selectedVideo: null
         };
 
-        this.videoSearch('kittens');
+        this.videoSearch('lego ninjago');
     }
 
     videoSearch(term){
-        YTSearch({key: API_KEY, term: term, safesearch: true}, (videos) => {
+        YTSearch({key: API_KEY,
+            term: term,
+            safesearch: true,
+                maxResults: 20
+            },
+            (videos) => {
             this.setState ({
                 videos: videos,
                 selectedVideo: videos[Math.floor(Math.random()*videos.length)]//get random video from result
@@ -43,18 +48,20 @@ class App extends Component {
         return (
 
             <div>
-                <h1>Velkommen til LinusTube</h1>
+                <div className="w3-container w3-animate-left w3-animate-zoom">
+                     <h1 className="w3-myfont">Velkommen til LinusTube</h1>
+                </div>
                 <SearchBar
                     onSearchTermChange={videoSearch}/>
 
-                <ul>
-                    <li>
+                <ul className="ul-menu">
+                    <li className="li-menu">
                         <SearchButton
                             onClicked={videoSearch}
                             searchTerm = "lego"
                             imageUrl={imageUrlLego}/>
                     </li>
-                    <li>
+                    <li className="li-menu">
                         <SearchButton
                             onClicked={videoSearch}
                             searchTerm = "dinosaurs"

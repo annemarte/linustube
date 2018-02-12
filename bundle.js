@@ -132,7 +132,11 @@
 	        value: function videoSearch(term) {
 	            var _this2 = this;
 
-	            (0, _youtubeApiSearch2.default)({ key: API_KEY, term: term, safesearch: true }, function (videos) {
+	            (0, _youtubeApiSearch2.default)({ key: API_KEY,
+	                term: term,
+	                safesearch: true,
+	                maxResults: 20
+	            }, function (videos) {
 	                _this2.setState({
 	                    videos: videos,
 	                    selectedVideo: videos[Math.floor(Math.random() * videos.length)] //get random video from result
