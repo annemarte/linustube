@@ -91,6 +91,10 @@
 
 	var _lego2 = _interopRequireDefault(_lego);
 
+	var _dinosaurs = __webpack_require__(182);
+
+	var _dinosaurs2 = _interopRequireDefault(_dinosaurs);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -154,14 +158,26 @@
 	                ),
 	                _react2.default.createElement(_search_bar2.default, {
 	                    onSearchTermChange: videoSearch }),
-	                _react2.default.createElement(_search_button2.default, {
-	                    onClicked: videoSearch,
-	                    searchTerm: 'lego',
-	                    imageUrl: _lego2.default }),
-	                _react2.default.createElement(_search_button2.default, {
-	                    onClicked: videoSearch,
-	                    searchTerm: 'dinosaur',
-	                    imageUrl: _lego2.default }),
+	                _react2.default.createElement(
+	                    'ul',
+	                    null,
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        _react2.default.createElement(_search_button2.default, {
+	                            onClicked: videoSearch,
+	                            searchTerm: 'lego',
+	                            imageUrl: _lego2.default })
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        _react2.default.createElement(_search_button2.default, {
+	                            onClicked: videoSearch,
+	                            searchTerm: 'dinosaurs',
+	                            imageUrl: _dinosaurs2.default })
+	                    )
+	                ),
 	                _react2.default.createElement(_video_detail2.default, { video: this.state.selectedVideo }),
 	                _react2.default.createElement(_video_list2.default, {
 	                    onVideoSelect: function onVideoSelect(selectedVideo) {
@@ -33303,15 +33319,18 @@
 	        value: function render() {
 	            var _this2 = this;
 
-	            console.log("relative url" + this.props.imageUrl);
 	            return _react2.default.createElement(
 	                "div",
-	                { className: "search-button" },
-	                _react2.default.createElement("img", { src: window.location + this.props.imageUrl,
-	                    value: this.props.searchTerm,
-	                    onClick: function onClick(event) {
-	                        return _this2.onClick(event.target.value);
-	                    } })
+	                { className: "search-button column" },
+	                _react2.default.createElement(
+	                    "figure",
+	                    null,
+	                    _react2.default.createElement("img", { src: window.location + this.props.imageUrl,
+	                        value: this.props.searchTerm,
+	                        onClick: function onClick(event) {
+	                            return _this2.onClick(event.target.value);
+	                        } })
+	                )
 	            );
 	        }
 	    }, {
@@ -33481,6 +33500,14 @@
 	"use strict";
 
 	module.exports = __webpack_require__.p + "/images/lego.jpg";
+
+/***/ }),
+/* 182 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = __webpack_require__.p + "/images/dinosaurs.jpg";
 
 /***/ })
 /******/ ]);
