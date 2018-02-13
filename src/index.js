@@ -30,6 +30,7 @@ class App extends Component {
     }
 
     videoSearch(term){
+        console.log("searching for " + term);
         YTSearch(
             {
                 key: API_KEY,

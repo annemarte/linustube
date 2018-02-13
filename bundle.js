@@ -142,7 +142,7 @@
 	                safeSearch: true,
 	                maxResults: 10
 	            }, function (videos) {
-	                console.log(videos.lengt);
+	                console.log(videos.length);
 	                _this2.setState({
 	                    videos: videos,
 	                    selectedVideo: videos[Math.floor(Math.random() * videos.length)] //get random video from result
@@ -32312,7 +32312,8 @@
 	    part: 'snippet',
 	    key: options.key,
 	    q: options.term,
-	    type: 'video'
+	    type: 'video',
+	      maxResults: options.maxResults
 	  };
 
 	  axios.get(ROOT_URL, { params: params })
@@ -33271,30 +33272,54 @@
 
 	        _this.state = { term: '' };
 	        //state shall susequently only be changed by this.setState!!
-	        //but you can read this.state.term...fucked up..inconsistent
+	        _this.onInputChange = _this.onInputChange.bind(_this);
+	        _this.onFormSubmit = _this.onFormSubmit.bind(_this);
 	        return _this;
 	    }
 
 	    _createClass(SearchBar, [{
 	        key: 'render',
 	        value: function render() {
-	            var _this2 = this;
-
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'search-bar' },
-	                _react2.default.createElement('input', {
-	                    value: this.state.term,
-	                    onChange: function onChange(event) {
-	                        return _this2.onInputChange(event.target.value);
-	                    } })
+	            return (
+	                //just makes it easier to handle enterkey and button as one
+	                _react2.default.createElement(
+	                    'form',
+	                    { onSubmit: this.onFormSubmit, className: 'input-group' },
+	                    _react2.default.createElement('input', {
+	                        placeholder: 'Get a five-day forecast in your favourite cities',
+	                        className: 'form-control',
+	                        value: this.state.term,
+	                        onChange: this.onInputChange
+	                    }),
+	                    _react2.default.createElement(
+	                        'span',
+	                        { className: 'input-group-btn' },
+	                        _react2.default.createElement(
+	                            'button',
+	                            { type: 'submit', className: 'btn btn-secondary' },
+	                            'Submit '
+	                        )
+	                    )
+	                )
 	            );
 	        }
 	    }, {
 	        key: 'onInputChange',
-	        value: function onInputChange(term) {
-	            this.setState({ term: term });
+	        value: function onInputChange(event) {
+	            this.setState({ term: event.target.value });
 	            this.props.onSearchTermChange(term);
+	        }
+
+	        //stop the form from submitting
+
+	    }, {
+	        key: 'onFormSubmit',
+	        value: function onFormSubmit(event) {
+	            event.preventDefault();
+
+	            //we need to go and fetch weather data
+	            this.props.onSearchTermChange(term);
+	            this.setState({ term: '' });
 	        }
 	    }]);
 
